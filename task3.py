@@ -1,0 +1,31 @@
+import networkx as nx
+
+G = nx.Graph()
+
+G.add_edge("M Osokorki", "M Levoberezhnaja", weight=15)
+G.add_edge("M Osokorki", "M Demeevskaja", weight=11)
+G.add_edge("M Osokorki", "Pl Sevastopolskaja", weight=18)
+G.add_edge("M Osokorki", "M Slavutich", weight=1)
+G.add_edge("M Slavutich", "Pl Sevastopolskaja", weight=17)
+G.add_edge("M Osokorki", "M Kharkovskaja", weight=4)
+G.add_edge("M Slavutich", "M Kharkovskaja", weight=5)
+G.add_edge("M Osokorki", "Pl Darnitskaja", weight=10)
+G.add_edge("M Osokorki", "Bereznyaki", weight=5)
+G.add_edge("M Osokorki", "Pr. Grigorenko", weight=3)
+G.add_edge("M Slavutich", "M Demeevskaja", weight=10)
+G.add_edge("M Levoberezhnaja", "M Kharkovskaja", weight=13)
+G.add_edge("M Levoberezhnaja", "Pr. Grigorenko", weight=9)
+G.add_edge("M Levoberezhnaja", "Bereznyaki", weight=4)
+G.add_edge("Vokzal", "Pl Sevastopolskaja", weight=5)
+G.add_edge("Vokzal", "Pl Kontraktovaja", weight=9)
+G.add_edge("Pl Kontraktovaja", "Pl Darnitskaja", weight=16)
+G.add_edge("Pl Kontraktovaja", "M Pecherskaja", weight=7)
+G.add_edge("M Pecherskaja", "Pl Darnitskaja", weight=14)
+G.add_edge("M Pecherskaja", "Dvorets Ukraina", weight=2)
+G.add_edge("Dvorets Ukraina", "Pl Sevastopolskaja", weight=9)
+G.add_edge("M Demeevskaja", "Dvorets Ukraina", weight=4)
+G.add_edge("M Demeevskaja", "M Goloseevskaja", weight=2)
+
+for node in G.nodes:
+    shortest_path_lengths = nx.single_source_dijkstra_path_length(G, source=node)
+    print(node, ': ', shortest_path_lengths, '\n')  
